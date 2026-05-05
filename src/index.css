@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+:root {
+    --primary-color: #e3a868;
+    --secondary-color: #e6e6e6;
+}
+
+@theme {
+    --color-pr: var(--primary-color);
+    --color-sc: var(--secondary-color);
+}
+
+@layer base {
+    html {
+        font-size: 16px;
+    }
+
+    body {
+        @apply bg-[#121212] relative min-h-screen;
+    }
+
+    h1 {
+        @apply text-2xl font-bold;
+    }
+
+    h2 {
+        @apply text-xl font-semibold leading-tight;
+    }
+
+    p {
+        @apply text-sm font-normal;
+    }
+}
+
+@layer components {
+    .plain {
+        @apply h-dvh w-full relative overflow-hidden py-2 px-4;
+    }
+
+    .cat-claw {
+        @apply  relative px-5 py-2 rounded-md ;
+
+        h1 {
+            @apply text-center text-(--primary-color);
+
+            span {
+                @apply text-(--secondary-color);
+            }
+        }
+    }
+
+    .cat-container {
+        @apply relative h-[calc(100dvh-56px)] w-full mt-2 flex items-start justify-center overflow-x-hidden overflow-y-scroll py-4 md:items-center;
+
+        .loader {
+            @apply text-lg ;
+        }
+    }
+
+    .cat-box {
+        @apply relative w-full max-w-5xl shrink-0 overflow-hidden rounded-lg text-sc md:grid md:grid-cols-[minmax(280px,0.85fr)_1.15fr];
+    }
+
+    .cat-media {
+        @apply relative aspect-[4/3] w-full overflow-hidden bg-black/30 sm:aspect-[16/10] md:aspect-auto md:h-full md:min-h-[640px];
+
+        img {
+            @apply h-full w-full object-cover;
+        }
+    }
+
+    .cat-content {
+        @apply flex flex-col gap-5 p-5 sm:p-6 lg:p-8;
+    }
+
+    .cat-title-row {
+        @apply flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between;
+
+        h2 {
+            @apply text-3xl text-pr sm:text-4xl;
+        }
+    }
+
+    .cat-kicker {
+        @apply mb-1 text-xs font-bold uppercase tracking-[0.18em] text-sc/60;
+    }
+
+    .cat-origin {
+        @apply inline-flex w-fit shrink-0 items-center gap-2 rounded-md border border-pr/25 bg-pr/10 px-3 py-2 text-sm font-semibold text-pr;
+    }
+
+    .cat-description {
+        @apply text-base leading-7 text-sc/85;
+    }
+
+    .cat-quick-stats {
+        @apply grid gap-3 sm:grid-cols-3;
+
+        span {
+            @apply flex min-h-14 items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-2 text-sm font-semibold text-sc;
+
+            svg {
+                @apply shrink-0 text-pr;
+            }
+        }
+    }
+
+    .cat-tags {
+        @apply flex flex-wrap gap-2;
+
+        span {
+            @apply rounded-md bg-white/10 px-3 py-1.5 text-xs font-semibold text-sc/90;
+        }
+    }
+
+    .cat-scores {
+        @apply grid gap-3 sm:grid-cols-2;
+    }
+
+    .cat-score {
+        @apply rounded-md border border-white/10 bg-black/20 p-3;
+    }
+
+    .cat-score-label {
+        @apply mb-2 flex items-center justify-between gap-3 text-sm font-semibold text-sc/90;
+    }
+
+    .cat-score-track {
+        @apply h-2 overflow-hidden rounded-full bg-white/10;
+
+        span {
+            @apply block h-full rounded-full bg-pr;
+        }
+    }
+
+    .cat-links {
+        @apply flex flex-wrap gap-2 pt-1;
+
+        a {
+            @apply inline-flex items-center gap-2 rounded-md border border-white/15 px-3 py-2 text-sm font-semibold text-sc transition hover:border-pr/70 hover:text-pr;
+
+            svg {
+                @apply text-xs;
+            }
+        }
+    }
+
+    .next-cat-btn {
+        @apply fixed bottom-5 right-5 rounded-md bg-pr px-5 py-3 text-sm font-bold text-[#121212] shadow-2xl transition hover:bg-[#f0bd83] focus:outline-none focus:ring-2 focus:ring-pr focus:ring-offset-2 focus:ring-offset-[#121212];
+    }
+
+    .ref_btn {
+        @apply absolute z-10 top-2 left-2 flex items-center justify-center rounded-full p-2 text-pr bg-black text-lg cursor-pointer;
+    }
+}
+
+@layer utilities {
+    .glass {
+        @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl;
+    }
+}
