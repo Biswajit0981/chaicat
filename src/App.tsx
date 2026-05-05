@@ -35,10 +35,10 @@ const App = () => {
             <Header/>
             <div className="cat-container">
                 {
-                    !isLoading && cat ? <CatBox cat={cat} setNext={setNext}/> : <p>Cat is Missing.. please i am catching...</p>
+                    !isLoading && cat && <CatBox cat={cat} setNext={setNext}/>
                 }
                 {
-                    isLoading && <p className="loader text-sc">Your cat is Loading here....🐈</p>
+                    isLoading && <p className="loader text-sc">i am catching your cat...🐈</p>
                 }
                 {
                     error && <p className="loader  text-red-500">{error}</p>
